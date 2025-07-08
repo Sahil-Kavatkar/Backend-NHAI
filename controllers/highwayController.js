@@ -227,13 +227,13 @@ export const getLaneCoordinatesForPlotting = async (req, res) => {
     const laneId = 'L1'; // For now, hardcoded to L1
 
     if (!highway) {
-      return res.status(400).json({ error: 'Missing highway query parameter' });
+      return res.status(400).json({ error: 'Missing query parameter' });
     }
 
     const segments = await HighwaySegment.find({ highway });
 
     if (!segments.length) {
-      return res.status(404).json({ error: 'No segments found for this highway' });
+      return res.status(404).json({ error: 'Data not found this Highway' });
     }
 
     const points = [];
